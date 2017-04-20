@@ -1,0 +1,49 @@
+#######################################
+# Syntax Coloring Map Keypad
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+MultitapKeypad	KEYWORD1
+Key	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+getKey	KEYWORD2
+resetTapCounter	KEYWORD2
+attachFunction	KEYWORD2
+code	KEYWORD2
+character	KEYWORD2
+lastCode	KEYWORD2
+beforeLastCode	KEYWORD2
+tapCounter	KEYWORD2
+state	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+NO_KEY	LITERAL1
+KEY_1	LITERAL1
+KEY_2	LITERAL1
+KEY_3	LITERAL1
+KEY_A	LITERAL1
+KEY_4	LITERAL1
+KEY_5	LITERAL1
+KEY_6	LITERAL1
+KEY_B	LITERAL1
+KEY_7	LITERAL1
+KEY_8	LITERAL1
+KEY_9	LITERAL1
+KEY_C	LITERAL1
+KEY_ASTERISK	LITERAL1
+KEY_0	LITERAL1
+KEY_NUMBER_SIGN	LITERAL1
+KEY_D	LITERAL1
+KEY_STATE	LITERAL1
+KEY_DOWN	LITERAL1
+MULTI_TAP	LITERAL1
+LONG_TAP	LITERAL1
+MULTI_KEY_DOWN	LITERAL1
+KEY_UP	LITERAL1

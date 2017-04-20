@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<!--meta http-equiv="refresh" content="1;url="-->
+	<title>Timepicker API Documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="ZulNs">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="robots" content="all">
+	<meta name="copyright" content="ZulNs">
+	<link rel="icon" href="../favicon.ico" type="image/x-icon">
+	<!--link rel="icon" href="favicon.png" type="image/png"-->
+<style type="text/css">
+	.style-option {
+		position: fixed;
+		top: 16px;
+		right: 16px;
+		font: 12px Arial;
+		color: #444;
+		background-color: #eee;
+		padding: 3px 6px;
+		-moz-box-shadow: 0 2px 4px rgba(0,0,0,.5);
+		-webkit-box-shadow: 0 2px 4px rgba(0,0,0,.5);
+		box-shadow: 0 2px 4px rgba(0,0,0,.5);
+	}
+	.style-option select {
+		background-color: transparent;
+		color: inherit;
+		border: 0;
+		outline: 0;
+		padding: 0;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		-o-appearance: none;
+		appearance: none;
+		overflow: hidden;
+		cursor: pointer;
+	}
+	.style-option select::-ms-expand {
+		display: none;
+	}
+</style>
+</head>
+<body>
+<div class="style-option">
+<span>Markdown style :</span><select id="style-option" onChange="selectStyle();">
+<option style="color: #737373; background-color: #fff" value="clearness">Clearness</option>
+<option style="color: #fff; background-color: #282a36" value="clearness-dark">Clearness Dark</option>
+<option style="color: #000; background-color: #F8F8F8" value="github" selected>GitHub</option>
+<option style="color: #333; background-color: #fff" value="standard">Standard</option>
+<option style="color: #000; background-color: #fff" value="top-marks">Top Marks</option>
+</select>
+<script type="text/javascript">
+	var styleOption = document.getElementById('style-option');
+	applyStyle();
+	
+	function selectStyle() {
+		document.body.removeChild(document.getElementById('current-style'));
+		applyStyle();
+	}
+	
+	function applyStyle() {
+		var link = document.createElement('link');
+		link.id = 'current-style';
+		link.rel = 'stylesheet';
+		link.href = 'markdown-viewer-' + styleOption.value + '.css';
+		document.body.appendChild(link);
+	}
+</script>
+</div>
+<h1>Timepicker API Documentation</h1>
+<h2>Overview</h2>
+<p>This widget can be used to display a <strong>Realtime Analog Clock</strong> besides as a <strong>Timepicker</strong>. As an timepicker, this widget can be directly draggable at both <em>hour hand</em> and <em>minute hand</em>. Drag at behind the axis of both hands which causes reverse rotation is also supported. Dragging with touch devices is supported well. Dragging at the clock hand is very smoothly, no matter how much angle of rotation have been made by your finger or mouse pointer, over there the appropriate hand will point at without lagging nor leading even a little. Toggling between 12 hours and 24 hours system can be done on the fly.</p>
+<h2>Download</h2>
+<ul>
+<li><a href="timepicker.js" target="_blank">timepicker.js</a></li>
+</ul>
+<h2>Requirements</h2>
+<ul>
+<li><a href="timepicker.css" target="_blank">timepicker.css</a> for styling this widget</li>
+</ul>
+<h2>Public Constructor</h2>
+<p><strong><code>Timepicker(isClockMode, is24HoursSystem, hour, minute, second)</code></strong></p>
+<h3>Arguments:</h3>
+<ul>
+<li>
+<p><strong><code>isClockMode</code></strong>, sets the widget mode</p>
+<p><strong><code>true</code></strong> : realtime analog clock mode</p>
+<p><strong><code>false</code></strong> : timepicker mode</p>
+<p>Default : <strong><code>false</code></strong></p>
+</li>
+<li>
+<p><strong><code>is24HoursSystem</code></strong></p>
+<p><strong><code>true</code></strong> : 24 hours system will be used</p>
+<p><strong><code>false</code></strong> : 12 hours system will be used</p>
+<p>Default : <strong><code>false</code></strong></p>
+</li>
+<li>
+<p><strong><code>hour</code></strong>, <strong><code>minute</code></strong>, and <strong><code>second</code></strong></p>
+<p>Initial time in 24 hours system format which is the clock's hands will point at. When those are omitted, the current time will be used.</p>
+</li>
+</ul>
+<h2>Public Methods</h2>
+<ul>
+<li>
+<p><strong><code>changeClockMode()</code></strong></p>
+<p>Toggles the widget mode between a realtime analog clock and a timepicker.</p>
+</li>
+<li>
+<p><strong><code>changeHourSystem()</code></strong></p>
+<p>Toggles the hour system which will be used, 24 hours or 12 hours system.</p>
+</li>
+<li>
+<p><strong><code>destroy()</code></strong></p>
+<p>Destroys the widget object and releases it from memory.</p>
+</li>
+<li>
+<p><strong><code>getElement()</code></strong></p>
+<p>Returns the widget div element.</p>
+</li>
+<li>
+<p><strong><code>getHours()</code></strong></p>
+<p>Returns the selected hours.</p>
+</li>
+<li>
+<p><strong><code>getMinutes()</code></strong></p>
+<p>Returns the selected minutes.</p>
+</li>
+<li>
+<p><strong><code>getTimeString()</code></strong></p>
+<p>Returns the string of the selected time, it may trailing with <code>&quot;AM&quot;</code> or <code>&quot;PM&quot;</code> if 12 hours system was used.</p>
+</li>
+<li>
+<p><strong><code>hide()</code></strong></p>
+<p>Hides the widget.</p>
+</li>
+<li>
+<p><strong><code>is24HoursSystem()</code></strong></p>
+<p>Returns <code>true</code> if 24 hours system was used or <code>false</code> for 12 hours system.</p>
+</li>
+<li>
+<p><strong><code>isClockMode()</code></strong></p>
+<p>Returns <code>true</code> if the current widget is a realtime analog clock or <code>false</code> for timepicker.</p>
+</li>
+<li>
+<p><strong><code>isHidden()</code></strong></p>
+<p>Returns <code>true</code> when the current widget was hidden or <code>false</code> if wasn't.</p>
+</li>
+<li>
+<p><strong><code>setDisplayStyle(style)</code></strong></p>
+<p>Sets the widget display style on the page by styling the CSS <code>display</code> property to a style which represents by <code>style</code> string argument. Default string value is <code>&quot;block&quot;</code>, which causes an instance of this widget takes up one row in the document page. To display this widget with another HTML element in a row, provide <code>&quot;inline-block&quot;</code> to this argument.</p>
+</li>
+<li>
+<p><strong><code>setHours(hours)</code></strong></p>
+<p>Sets the timepicker initial hours in the 24 hours system format.</p>
+</li>
+<li>
+<p><strong><code>setMinutes(minutes)</code></strong></p>
+<p>Sets the timepicker initial minutes.</p>
+</li>
+<li>
+<p><strong><code>setSeconds(seconds)</code></strong></p>
+<p>Sets the timepicker initial seconds.</p>
+</li>
+</ul>
+<h2>Public Property</h2>
+<ul>
+<li>
+<p><strong><code>callback</code></strong></p>
+<p>Assign this property to a function that do some processes when a time was selected or when the widget was closed.</p>
+<p>For example:</p>
+<pre><code><span class="keyword">var</span> widget = <span class="keyword">new</span> Timepicker();
+widget.callback = <span class="keyword">function</span>() {
+    <span class="comment">// do stuff</span>
+};
+</code></pre>
+</li>
+</ul>
+<h2>Getting Started</h2>
+<h3>Embedding the Timepicker Widget on a Web Page</h3>
+<p>Generally, you'll need to include these both files on any page to use the widget:</p>
+<pre><code><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"https://ZulNs.github.io/libs/timepicker.css"</span>/&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"https://ZulNs.github.io/libs/timepicker.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre>
+<p>For the following code examples, please insert them at anywhere you want within the document's body below the above code.</p>
+	<link rel="stylesheet" href="timepicker.css"/>
+	<script type="text/javascript" src="timepicker.js"></script>
+<h3>Embedding the Widget as a Realtime Analog Clock</h3>
+<h4>Code example:</h4>
+<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"clock"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+    <span class="keyword">var</span> clock = <span class="keyword">new</span> Timepicker(<span class="literal">true</span>);
+    document.getElementById(<span class="string">'clock'</span>).appendChild(clock.getElement());
+    clock.show();
+
+    clock.callback = <span class="keyword">function</span>() {
+        clock.show(); <span class="comment">// prevent the widget from being closed</span>
+    };
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre>
+<h4>Result:</h4>
+<p>&nbsp;</p>
+	<div id="clock"></div>
+	<script type="text/javascript">
+		var clock = new Timepicker(true);
+		document.getElementById('clock').appendChild(clock.getElement());
+		clock.show();
+		
+		clock.callback = function() {
+			clock.show();
+		};
+	</script>
+<p>&nbsp;</p>
+<h3>Embedding the Widget as a Timepicker</h3>
+<h4>Code example:</h4>
+<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"timepicker"</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"picked-text"</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">size</span>=<span class="value">"32"</span>/&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"pick-button"</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">onclick</span>=<span class="value">"pickATime();"</span> <span class="attribute">value</span>=<span class="value">"pick"</span>/&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+    <span class="keyword">var</span> pickedTxt = document.getElementById(<span class="string">'picked-text'</span>),
+        pickBtn = document.getElementById(<span class="string">'pick-button'</span>),
+        timepicker = <span class="keyword">new</span> Timepicker();
+    document.getElementById(<span class="string">'timepicker'</span>).appendChild(timepicker.getElement());
+    timepicker.getElement().style.marginTop = <span class="string">'10px'</span>;
+
+    timepicker.callback = <span class="keyword">function</span>() {
+        pickBtn.style.display = <span class="string">'inline-block'</span>;
+        pickedTxt.value = timepicker.getTimeString();
+        pickedTxt.selectionStart = <span class="number">0</span>;
+        pickedTxt.selectionEnd = pickedTxt.value.length;
+        pickedTxt.focus();
+    };
+
+    <span class="function"><span class="keyword">function</span> <span class="title">pickATime</span><span class="params">()</span> {</span>
+        pickBtn.style.display = <span class="string">'none'</span>;
+        timepicker.show();
+    }
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre>
+<h4>Result:</h4>
+<p>&nbsp;</p>
+	<div id="timepicker"><input id="picked-text" type="text" size="32"/><input id="pick-button" type="button" onclick="pickATime();" value="pick"/></div>
+	<script type="text/javascript">
+		var pickedTxt = document.getElementById('picked-text'),
+			pickBtn = document.getElementById('pick-button'),
+			timepicker = new Timepicker();
+		document.getElementById('timepicker').appendChild(timepicker.getElement());
+		timepicker.getElement().style.marginTop = '10px';
+		
+		timepicker.callback = function() {
+			pickBtn.style.display = 'inline-block';
+			pickedTxt.value = timepicker.getTimeString();
+			pickedTxt.selectionStart = 0;
+			pickedTxt.selectionEnd = pickedTxt.value.length;
+			pickedTxt.focus();
+		};
+		
+		function pickATime() {
+			pickBtn.style.display = 'none';
+			timepicker.show();
+		}
+		
+		window.scrollTo(0, 0);
+	</script>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr>
+<h4>Made By ZulNs</h4>
+<h5>@Yogyakarta, February 2016</h5>
+<hr>
+</body>
+</html>
