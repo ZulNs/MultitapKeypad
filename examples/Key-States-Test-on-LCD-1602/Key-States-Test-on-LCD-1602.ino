@@ -78,7 +78,7 @@ void loop() {
         lcd.print( key.tapCounter, DEC );
       else {
         kpd.resetTapCounter();
-        lcd.print( F( "0" ) );
+        lcd.print( '0' );
       }
     }
     break;

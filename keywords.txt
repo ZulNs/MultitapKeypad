@@ -24,6 +24,7 @@ state	KEYWORD2
 #######################################
 # Constants (LITERAL1)
 #######################################
+KEY_CODE	LITERAL1
 NO_KEY	LITERAL1
 KEY_1	LITERAL1
 KEY_2	LITERAL1

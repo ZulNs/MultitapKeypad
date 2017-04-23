@@ -52,16 +52,18 @@ void loop() {
     Serial.print( F( "??" ) );
   switch ( key.state ) {
   case KEY_DOWN:
-    tone( BEEP, 5000, 20 );
-    Serial.println( F( " down" ) );
-    break;
   case MULTI_TAP:
     tone( BEEP, 5000, 20 );
     Serial.println( F( " down" ) );
-    Serial.print( F( "TapCounter: " ) );
-    Serial.println( key.tapCounter, DEC );
-    if ( key.tapCounter == 9 )
-      kpd.resetTapCounter();
+    if ( key.state == MULTI_TAP ) {
+      Serial.print( F( "TapCounter: " ) );
+      if ( key.tapCounter < 10 )
+        Serial.println( key.tapCounter, DEC );
+      else {
+        kpd.resetTapCounter();
+        Serial.println( 0 );
+      }
+    }
     break;
   case LONG_TAP:
     tone( BEEP, 5000, 20 );
