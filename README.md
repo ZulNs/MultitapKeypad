@@ -120,7 +120,7 @@ This library provides with following examples:
 ***Figure 3.*** *LCD 1602 Wiring*
 
 - ### Typewriting Demo on LCD 1602
-  This example demonstrates the typewriting style just like on old Nokia phone. ***Fig. 3.*** and ***Fig. 4.*** illustrate all available characters which can be accessed. Character in the parentheses accessed through long-tap or hold the relevant key for at least one second. Hardware wiring also can be followed on ***Fig. 2.*** and ***Fig. 3.***
+  This example demonstrates the typewriting style just like on old Nokia phone. ***Fig. 4.*** and ***Fig. 5.*** illustrate all available characters which can be accessed. Character in the parentheses accessed through long-tap or hold the relevant key for at least one second. Hardware wiring also can be followed on ***Fig. 2.*** and ***Fig. 3.***
 
   
 
@@ -131,6 +131,19 @@ This library provides with following examples:
 ![](123-mode.png?raw=true)
 
 ***Figure 5.*** *Keypad Style in Numeric Mode*
+
+- ### Input String on LCD 1602
+  If the previous example demonstrates the typewriting style just like on old Nokia phone, this example captures the entered string from the keypad into a string buffer and displays them to Serial Monitor. ***Fig. 6.*** and ***Fig. 7.*** illustrate all available characters which can be accessed. Character in the parentheses accessed through long-tap or hold the relevant key for at least one second. Hardware wiring also can be followed on ***Fig. 2.*** and ***Fig. 3.***
+
+  
+
+![](abc-mode-2.png?raw=true)
+
+***Figure 6.*** *Keypad Style in Alphabet Mode*
+
+![](123-mode-2.png?raw=true)
+
+***Figure 7.*** *Keypad Style in Numeric Mode*
 
 &nbsp;
 
