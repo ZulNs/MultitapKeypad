@@ -106,6 +106,7 @@ void setup() {
     }
     tone(BEEP, 4000, 100);
   }
+  waitUntilUnpressed();
   Serial.print(F("Your choice: "));
   Serial.println(chr);
   
@@ -147,6 +148,14 @@ char getAKey() {
   }
 }
 
+void waitUntilUnpressed() {
+  while(true) {
+    key = kpd.getKey();
+    if (key.state == KEY_UP)
+      return;
+  }
+}
+
 void getString(byte startPos, byte endPos) {
   char chr;
   byte strSize = endPos - startPos + 1;
@@ -156,6 +165,7 @@ void getString(byte startPos, byte endPos) {
   setCursorPos();
   chrCtr = 0;
   displayInputMode();
+  boolean isCompleted = false;
   while (true) {
     key = kpd.getKey();
     switch (key.state) {
@@ -190,10 +200,13 @@ void getString(byte startPos, byte endPos) {
             break;
           case KEY_D:
             strBuffer[chrCtr] = 0;
-            return;
+            isCompleted = true;
+            break;
           default:
             chr = alphaMode ? getAlphabet(key.character, key.tapCounter) : key.character;
         }
+        if (isCompleted)
+          break;
         if (!upperCaseMode && chr >= 'A')
           chr += 32; // makes lower case
         if (key.state == MULTI_TAP && alphaMode && key.character >= '1' && key.character <= '9') {
@@ -251,6 +264,8 @@ void getString(byte startPos, byte endPos) {
         digitalWrite(LED_BUILTIN, LOW);
         backlightTimeout = millis() + BACKLIGHT_PERIODS;
         autoOffBacklight = true;
+        if (isCompleted)
+          return;
     }
   }
 }
