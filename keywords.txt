@@ -20,6 +20,7 @@ lastCode	KEYWORD2
 beforeLastCode	KEYWORD2
 tapCounter	KEYWORD2
 state	KEYWORD2
+isCanceled	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
@@ -48,3 +49,4 @@ MULTI_TAP	LITERAL1
 LONG_TAP	LITERAL1
 MULTI_KEY_DOWN	LITERAL1
 KEY_UP	LITERAL1
+CANCELED	LITERAL1
