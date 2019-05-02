@@ -1,6 +1,6 @@
 # MultitapKeypad Arduino Library Documentation
 
-[![arduino-library-badge](https://www.ardu-badge.com/badge/MultitapKeypad.svg?)](https://www.ardu-badge.com/MultitapKeypad)
+[![Library Manager: MultitapKeypad 1.1.0](https://www.ardu-badge.com/badge/MultitapKeypad.svg)](https://www.ardu-badge.com/MultitapKeypad)
 
 ## Overview
 This library allows interfacing between an Arduino board with matrix 4 x 3 phone's keypad as well as matrix 4 x 4 keypad. It can indicates the key states such as key down, repeatedly key tap, key press and hold, multiple key down, and key release.
